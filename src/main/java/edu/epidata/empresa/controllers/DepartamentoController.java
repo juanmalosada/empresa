@@ -24,7 +24,7 @@ public class DepartamentoController {
         return departamentoService.findAll();
     }
     @PostMapping("/{id}")
-    public ResponseEntity<Departamento> createDepartamento(@PathVariable(value="id")Integer id) {
+    public ResponseEntity<Departamento> createDepartamento(@PathVariable(value="id")Long id) {
         Optional<Departamento> departamento = departamentoService.findById(id);
         if (departamento.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -38,7 +38,7 @@ public class DepartamentoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Departamento> updateDepartamento(@PathVariable(value="id")Integer id, @RequestBody Departamento departamento) {
+    public ResponseEntity<Departamento> updateDepartamento(@PathVariable(value="id")Long id, @RequestBody Departamento departamento) {
         Optional<Departamento> departamentoOptional = departamentoService.findById(id);
         if (departamentoOptional.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -47,7 +47,7 @@ public class DepartamentoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Departamento> deleteDepartamento(@PathVariable(value="id")Integer id) {
+    public ResponseEntity<Departamento> deleteDepartamento(@PathVariable(value="id")Long id) {
         try {
             departamentoService.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);

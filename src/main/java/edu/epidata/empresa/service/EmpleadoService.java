@@ -18,7 +18,7 @@ public class EmpleadoService {
         return empleadoRepository.findAll();
     }
 
-    public Optional<Empleado> findById(Integer id) {
+    public Optional<Empleado> findById(Long id) {
         return empleadoRepository.findById(id);
     }
 
@@ -26,7 +26,7 @@ public class EmpleadoService {
         return empleadoRepository.save(empleado);
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(Long id) {
         empleadoRepository.deleteById(id);
     }
 
@@ -42,7 +42,7 @@ public class EmpleadoService {
         empleadoRepository.delete(empleado);
     }
 
-    public Empleado update(Integer id, Empleado empleado) {
+    public Empleado update(Long id, Empleado empleado) {
         Empleado empleadoActual = findById(id).get();
         empleadoActual.setNombre(empleado.getNombre());
         empleadoActual.setApellido(empleado.getApellido());

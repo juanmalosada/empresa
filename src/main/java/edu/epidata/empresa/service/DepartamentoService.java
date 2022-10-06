@@ -18,7 +18,7 @@ public class DepartamentoService {
         return departamentoRepository.findAll();
     }
 
-    public Optional<Departamento> findById(Integer id) {
+    public Optional<Departamento> findById(Long id) {
         return departamentoRepository.findById(id);
     }
 
@@ -26,7 +26,7 @@ public class DepartamentoService {
         return departamentoRepository.save(departamento);
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(Long id) {
         departamentoRepository.deleteById(id);
     }
 
@@ -42,7 +42,7 @@ public class DepartamentoService {
         departamentoRepository.delete(departamento);
     }
 
-    public Departamento update(Integer id, Departamento departamento) {
+    public Departamento update(Long id, Departamento departamento) {
         Departamento departamentoActual = findById(id).get();
         departamentoActual.setNombre(departamento.getNombre());
         departamentoActual.setEmpleados(departamento.getEmpleados());
